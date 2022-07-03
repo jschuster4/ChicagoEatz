@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+    <script type="text/javascript" src="{{ url_for('static', filename='script_1.js') }}"defer></script> 
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZcxWYHmK8bi-Fzwnu2BDlLz5PTHEYjNs&callback=get_map_data"
+        defer></script>   
+</head>
+<body>
+    <a href="/success">Restaurants</a>
+    <a href="/logout">Logout</a>
+    <div class="containter" style="display: flex; align-items: center; flex-direction: column;">
+        <input id="rest_address" type="hidden" name="restaurant_id" value="{{one_restaurant.address}}">
+        <h1>{{one_restaurant.name}}</h1>
+        <p>Located at: {{one_restaurant.address}}</p>
+        <!--The div element for the map -->
+        <div id="map"></div>
+    </div>
+    <div class="container" style="display: flex; align-items: center; flex-direction: column;">
+        <div>
+            <b>Rated By: {{one_restaurant.user.first_name}} {{one_restaurant.user.last_name}}</b>
+        </div>
+        <table class="table">
+            <tr>
+                <td>Serving {{one_restaurant.cuisine}} Food</td>
+            </tr>
+            <tr>
+                <td>Rated as a {{one_restaurant.rating}} for overall quality</td>
+            </tr>
+            <tr>
+                <td>Rated as a {{one_restaurant.casual}} for how formal the restaurant seems</td>
+            </tr>
+            <tr>
+                <td>Notes from the foodie: {{one_restaurant.description}}</td>
+            </tr>
+        </table>
+        
+    </div>
+    
+    
+    
+    <!-- 
+            The `defer` attribute causes the callback to execute after the full HTML
+            document has been parsed. For non-blocking uses, avoiding race conditions,
+            and consistent behavior across browsers, consider loading using Promises
+            with https://www.npmjs.com/package/@googlemaps/js-api-loader.
+            -->
+    
+    
+
+</body>
+</html>
