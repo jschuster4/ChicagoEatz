@@ -9,10 +9,6 @@
 
 </head>
 <body>
-    <div>
-        <a href="/restaurant/create">Add a New Restaurant</a>
-        <a href="/logout">Logout</a>
-    </div>
     <div class="container" style="display: flex;">
         <div class="container">
             <h1>Hello {{session['first_name']}}, and Welcome to a Hassle Free Dining Experience.</h1>
@@ -30,16 +26,21 @@
                     <td>{{rows.cuisine}}</td>
                     <td>{{rows.rating}} / 10</td>
                     <td>
-                        <a href="/restaurants/view/{{rows.id}}">Details</a>
+                        <a href="/restaurants/view/{{rows.id}}"><button class="btn btn-primary">Details</button></a>
                         {% if rows.user_id == session['user_id'] %}
-                        <a href="/restaurants/update/{{rows.id}}">Edit</a>
-                        <a href="/restaurants/delete/{{rows.id}}">Delete</a>
+                        <a href="/restaurants/update/{{rows.id}}"><button class="btn btn-primary">Edit</button></a>
+                        <a href="/restaurants/delete/{{rows.id}}"><button class="btn btn-primary">Delete</button></a>
                         {% endif %}
                     </td>
                 </tr>
                 {% endfor %}
             </table>
         </div>
+        
+    </div>
+    <div style="display: flex; justify-content: center">
+        <a href="/restaurant/create"><button class="btn btn-secondary">Add a New Restaurant</button></a>
+        <a href="/logout"><button class="btn btn-secondary">Logout</button></a>
     </div>
     
 </body>

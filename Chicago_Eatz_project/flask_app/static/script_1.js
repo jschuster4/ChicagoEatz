@@ -8,7 +8,7 @@ async function initMap(latitude, longitude) {
         zoom: 15,
         center: location,
     });
-    // The marker, positioned at Uluru
+    // The marker, positioned in the center
     const marker = new google.maps.Marker({
         position: location,
         map: map,

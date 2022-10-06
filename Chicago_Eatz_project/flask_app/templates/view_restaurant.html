@@ -14,8 +14,6 @@
         defer></script>   
 </head>
 <body>
-    <a href="/success">Restaurants</a>
-    <a href="/logout">Logout</a>
     <div class="containter" style="display: flex; align-items: center; flex-direction: column;">
         <input id="rest_address" type="hidden" name="restaurant_id" value="{{one_restaurant.address}}">
         <h1>{{one_restaurant.name}}</h1>
@@ -27,7 +25,7 @@
         <div>
             <b>Rated By: {{one_restaurant.user.first_name}} {{one_restaurant.user.last_name}}</b>
         </div>
-        <table class="table">
+        <table class="table table-dark table-striped">
             <tr>
                 <td>Serving {{one_restaurant.cuisine}} Food</td>
             </tr>
@@ -41,7 +39,8 @@
                 <td>Notes from the foodie: {{one_restaurant.description}}</td>
             </tr>
         </table>
-        
+        <a href="/success"><button class="btn btn-secondary">Restaurants</button></a>
+        <!-- <a href="/logout"><button class="btn btn-secondary">Logout</button></a> -->
     </div>
     
     
